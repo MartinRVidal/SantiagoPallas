@@ -1,0 +1,11 @@
+:root {
+  --primary: #2b2b6d;
+  --secondary: #2986cc;
+  --tertiary: #222221;
+  --hoverPrimary: #414197;
+  --hoverSecondary: #3c9feb;
+  --hoverTertiary: #333333;
+  --letterOpacity: #8f8f8f;
+  --colorError: rgb(201, 18, 18);
+  --borderBottom: 1px solid rgba(148, 148, 148, 0.274);
+}

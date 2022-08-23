@@ -1,0 +1,153 @@
+.sidebar_sidebar {
+  background-color: var(--tertiary);
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sidebar_menu-bars {
+  margin-left: 2rem;
+  font-size: 2rem;
+  background: none;
+  color: white;
+  cursor: pointer;
+  position: absolute;
+  top: 15px;
+  left: 15px;
+}
+
+.sidebar_nav-menu {
+  background-color: var(--tertiary);
+  width: 300px;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: -100%;
+  transition: 350ms;
+  z-index: 10;
+}
+
+.sidebar_nav-menu.active {
+  left: 0;
+  transition: 350ms;
+}
+
+.sidebar_data--items {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  list-style: none;
+  height: 40px;
+}
+
+.sidebar_nav-menu--items {
+  width: 100%;
+}
+
+.sidebar_sidebar-toggle {
+  background-color: var(--tertiary);
+  width: 100%;
+  height: 80px;
+}
+
+.sidebar_data--items a {
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+  /* si se corren los abm dentro de config importnat al width */
+  width: 300px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.sidebar_data--items a:hover {
+  background-color: var(--hoverTertiary);
+}
+
+.sidebar_sidebar--title {
+  list-style: none;
+  color: white;
+  background-color: var(--hoverTertiary);
+  padding: 0 16px;
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.sidebar_data--items span {
+  padding-left: 10px;
+}
+
+.sidebar_session-close {
+  background-color: white;
+  color: var(--primary);
+  font-weight: 700;
+  padding: 6px 8px;
+  border-radius: 4px;
+  transition: 0.2s ease-in-out;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  top: 25px;
+  right: 25px;
+}
+.sidebar_session-close:hover {
+  background: var(--primary);
+  color: white;
+}
+
+/*** Headersidebar ***/
+
+.sidebar_header {
+  background-color: var(--tertiary);
+  height: 80px;
+  width: 100vw;
+  /* Quitar en en mediaQ */
+  /* lo que achica la pantalla con el menu desplegable */
+  /* padding-left: 300px; */
+}
+
+/*** Submenu ABM ***/
+
+.sidebar_ulConfig {
+  max-height: 240px !important;
+}
+
+.sidebar_ulConfig::-webkit-scrollbar {
+  /* -webkit-appearance: none; */
+  display: none;
+}
+
+.sidebar_submenu {
+  background: var(--tertiary);
+  color: white;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+.sidebar_collapses {
+  width: 100%;
+  padding: 4px 0px 4px 4px !important;
+}
+
+.sidebar_collapses:hover {
+  background-color: var(--hoverTertiary) !important;
+}
+
+.sidebar_container-icon {
+  min-width: 30px !important;
+  padding-left: 6px !important;
+}
+
+@media only screen and (max-width: 768px) {
+  .sidebar_nav-menu {
+    width: 100%;
+    transition: 350ms;
+  }
+  .sidebar_header {
+    padding-left: 0;
+  }
+}
