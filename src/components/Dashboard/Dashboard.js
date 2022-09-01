@@ -28,8 +28,8 @@ const Dashboard = () => {
                     key={i}
                     onClick={() => history.push(e.link)}
                   >
-                    <h3 className="dashboard_title">{e.title}</h3>
                     <span className="dashboard_icon">{e.icon}</span>
+                    <h3 className="dashboard_title">{e.title}</h3>
                   </div>
                 );
               })}

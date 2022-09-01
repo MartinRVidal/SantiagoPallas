@@ -73,14 +73,6 @@ const Sidebar = () => {
         <div className="sidebar_menu-bars">
           <GiHamburgerMenu onClick={showSidebar} />
         </div>
-        <div className="sidebar-profile">
-          <button
-            className="sidebar_session-close"
-            onClick={handleSessionClose}
-          >
-            Cerrar Session
-          </button>
-        </div>
       </div>
       {/* <nav className="sidebar_nav-menu" style={{width: sidebar ? "200px" : "0px"}}></nav> */}
       <nav className={sidebar ? "sidebar_nav-menu active" : "sidebar_nav-menu"}>
@@ -218,6 +210,13 @@ const Sidebar = () => {
                 })}
               </div>
             </Collapse>
+          </div>
+          <div className="sidebar_cerrar_seccion">
+            <button
+              className="sidebar_session-close"
+              onClick={handleSessionClose}>
+              Cerrar Session
+            </button>
           </div>
         </ul>
       </nav>

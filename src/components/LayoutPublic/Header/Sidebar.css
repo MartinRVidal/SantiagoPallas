@@ -84,20 +84,24 @@
 
 .sidebar_session-close {
   background-color: white;
-  color: var(--primary);
+  color: black;
   font-weight: 700;
   padding: 6px 8px;
   border-radius: 4px;
   transition: 0.2s ease-in-out;
   border: none;
   cursor: pointer;
-  position: absolute;
-  top: 25px;
-  right: 25px;
 }
 .sidebar_session-close:hover {
-  background: var(--primary);
+  background: black;
   color: white;
+  border: 1px solid white;
+}
+
+.sidebar_cerrar_seccion{
+  justify-content: center;
+  display: flex;
+  margin-top: 15px;
 }
 
 /*** Headersidebar ***/
