@@ -20,7 +20,7 @@ import Collapse from "@mui/material/Collapse";
 import showAlert from "../../../shared/showAlert";
 
 const Sidebar = () => {
-  const sidebarResponsive = matchMedia("(max-width: 768px)");
+  const sidebarResponsive = matchMedia("(max-width: 1000px)");
   // const cambiarMQ = (mediaQ) => {
   //   if (mediaQ.matches === false) {
   //     return true;

@@ -18,6 +18,7 @@ import { loginAction } from "../../redux/login";
 import imgLogin from "../../image/cecac76e-7bf3-48e1-bb26-e04c7a7baf53.jpg";
 import "./login.css";
 import "../shared.css";
+import logoweb from "../../image/logo-web.png";
 
 function Copyright() {
   return (
@@ -111,6 +112,9 @@ export default function SignIn() {
                 maxWidth="xs"
                 className={classes.root}
               >
+                <div className="logo-web-container">
+                  <img className="logo-web-login" src={logoweb}/>
+                </div>
                 <CssBaseline />
                 <div className={classes.paper}>
                   <Typography component="h1" variant="h5">

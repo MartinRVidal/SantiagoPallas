@@ -32,7 +32,6 @@ import DashboardProcesos from "./components/Dashboard/DashboardProcesos";
 import ArticulosList from "./components/ABM/Articulos/ArticulosList";
 import ArticulosForm from "./components/ABM/Articulos/ArticulosForm";
 import PageNotFound from "./components/PageNotFound/PageNotFound";
-
 function App() {
   const [data, setData] = useState(mockData);
 
@@ -105,6 +104,7 @@ function App() {
 
   // Ir a Red -> \\26.204.148.246\PallasFront
   return (
+    <>
     <ContextAPI.Provider
       value={{ updateListTitle, addCard, addList, updateTitleCard }}
     >
@@ -218,6 +218,7 @@ function App() {
         </div>
       </Router>
     </ContextAPI.Provider>
+    </>
   );
 }
 

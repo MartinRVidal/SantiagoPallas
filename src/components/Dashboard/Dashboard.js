@@ -15,9 +15,9 @@ const Dashboard = () => {
         <div className="dashboard_allContainer">
           <h1 className="dashboard-tituloPrincipal">
             <AiFillDashboard />
-            Dashboard
+            Dashboard <small className="span-tituloprincipal" >Seleccione una accion</small>
           </h1>
-          <ButtonsNavigation label1="Dashboard" icon1={<AiFillDashboard />} />
+          <ButtonsNavigation label1="Dashboard" />
           <div className="dashboard_container">
             <h5>Menú de navegación</h5>
             <div className="dashboard_grid">

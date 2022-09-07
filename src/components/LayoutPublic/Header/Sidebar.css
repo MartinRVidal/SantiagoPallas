@@ -1,6 +1,6 @@
 .sidebar_sidebar {
   background-color: var(--tertiary);
-  height: 80px;
+  height: 60px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -108,7 +108,7 @@
 
 .sidebar_header {
   background-color: var(--tertiary);
-  height: 80px;
+  height: 60px;
   width: 100vw;
   /* Quitar en en mediaQ */
   /* lo que achica la pantalla con el menu desplegable */

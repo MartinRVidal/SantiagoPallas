@@ -23,12 +23,19 @@
   display: flex;
   align-items: center;
   border-bottom: var(--borderBottom);
-  font-size: 2.3em;
+  font-size: 2.6em;
 }
 
 .dashboard-tituloPrincipal svg {
-  margin-right: 7px;
-  margin-bottom: 4px;
+  display: none !important;
+}
+
+.span-tituloprincipal {
+  font-size: 0.6em;
+  font-weight: 200;
+  display: flex;
+  margin-left: 1%;
+  margin-top: 1%;
 }
 
 .dashboard_title {
@@ -67,4 +74,15 @@
 .dashboard_icon {
   font-size: 3.5em;
   color: white;
+}
+
+@media (max-width:550px) {
+  .dashboard_container-card{
+    width: 80%;
+  }
+
+  .dashboard_grid{
+    flex-direction: column;
+    align-items: center;
+  }
 }
