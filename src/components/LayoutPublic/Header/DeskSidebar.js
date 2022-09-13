@@ -24,8 +24,16 @@ import PallasFavicon from "../../../image/ico-favicon.png";
 const DeskSidebar = () => {
     const history = useHistory();
     const [open, setOpen] = useState(false);
+    const [open2, setOpen2] = useState(false);
+    const [open3, setOpen3] = useState(false);
     const handleClick = () => {
         setOpen(!open);
+    };
+    const handleClick2 = () => {
+        setOpen2(!open2);
+    };
+    const handleClick3 = () => {
+        setOpen3(!open3);
     };
     
     const handleSessionClose = () => {
@@ -122,20 +130,20 @@ const DeskSidebar = () => {
                             className="sidebar_submenu"
                         >
                             <ListItemButton
-                                onClick={handleClick}
+                                onClick={handleClick2}
                                 className="sidebar_collapses"
                             >
                                 <ListItemIcon className="sidebar_container-icon">
                                     <GiSecurityGate style={{ color: "white" }} />
                                 </ListItemIcon>
                                 <ListItemText primary="Seguridad" />
-                                {open ? (
+                                {open2 ? (
                                     <MdExpandLess style={{ marginRight: "10px" }} />
                                 ) : (
                                     <MdExpandMore style={{ marginRight: "10px" }} />
                                 )}
                             </ListItemButton>
-                            <Collapse in={open} timeout="auto" unmountOnExit>
+                            <Collapse in={open2} timeout="auto" unmountOnExit>
                                 <List component="div" disablePadding>
                                     {DataSeguridad.map((e, i) => {
                                         return (
@@ -157,20 +165,20 @@ const DeskSidebar = () => {
 
                         <div className="sidebar_submenu">
                             <ListItemButton
-                                onClick={handleClick}
+                                onClick={handleClick3}
                                 className="sidebar_collapses"
                             >
                                 <ListItemIcon className="sidebar_container-icon">
                                     <MdPendingActions style={{ color: "white" }} />
                                 </ListItemIcon>
                                 <ListItemText primary="Procesos" />
-                                {open ? (
+                                {open3 ? (
                                     <MdExpandLess style={{ marginRight: "10px" }} />
                                 ) : (
                                     <MdExpandMore style={{ marginRight: "10px" }} />
                                 )}
                             </ListItemButton>
-                            <Collapse in={open} timeout="auto" unmountOnExit>
+                            <Collapse in={open3} timeout="auto" unmountOnExit>
                                 <div>
                                     {DataProcesos.map((e, i) => {
                                         return (
