@@ -17,7 +17,6 @@ import * as yup from "yup";
 import { Formik, ErrorMessage } from "formik";
 import { useDispatch, useSelector } from "react-redux";
 import { registerAction } from "../../redux/register";
-import imgRegister from "../../image/img-register.jpg";
 import "./register.css";
 import "../shared.css";
 
@@ -224,7 +223,6 @@ export default function SignIn() {
             </Formik>
           </div>
           <div className="register_container-img">
-            <img src={imgRegister} alt="Imagen no encontrada" />
           </div>
         </div>
       </Header>

@@ -1,4 +1,3 @@
-import React, { useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -15,10 +14,12 @@ import * as yup from "yup";
 import { Formik, ErrorMessage } from "formik";
 import { useDispatch, useSelector } from "react-redux";
 import { loginAction } from "../../redux/login";
-import imgLogin from "../../image/cecac76e-7bf3-48e1-bb26-e04c7a7baf53.jpg";
+import santiagoPallasLogin from "../../image/santiago pallas login.jpg";
 import "./login.css";
 import "../shared.css";
 import logoweb from "../../image/logo-web.png";
+import { useEffect } from "react";
+
 
 function Copyright() {
   return (
@@ -113,7 +114,7 @@ export default function SignIn() {
                 className={classes.root}
               >
                 <div className="logo-web-container">
-                  <img className="logo-web-login" src={logoweb}/>
+                  <img className="logo-web-login" src={logoweb} alt=""/>
                 </div>
                 <CssBaseline />
                 <div className={classes.paper}>
@@ -176,7 +177,7 @@ export default function SignIn() {
           </Formik>
         </div>
         <div className="login_container-img">
-          <img src={imgLogin} alt="Imagen no encontrada" />
+          <img src={santiagoPallasLogin} alt="Imagen no encontrada" />
         </div>
       </div>
     </div>

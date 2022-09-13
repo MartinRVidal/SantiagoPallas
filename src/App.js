@@ -1,5 +1,5 @@
 import mockData from "./utils/mockdata";
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import ContextAPI from "./utils/contextAPI";
 import uuid from "react-uuid";
 import {

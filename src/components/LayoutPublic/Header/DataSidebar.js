@@ -5,6 +5,13 @@ import { DiTrello } from "react-icons/di";
 import { VscServerProcess } from "react-icons/vsc";
 import { MdAddTask, MdSecurity } from "react-icons/md";
 
+export const DataUser = [  {
+  icon: <FiUserCheck />,
+  title: "Login",
+  link: "/PallasFront/login",
+},];
+
+
 export const DataSidebar = [
   {
     icon: <AiFillDashboard />,
@@ -15,11 +22,6 @@ export const DataSidebar = [
     icon: <DiTrello />,
     title: "Tablero",
     link: "/PallasFront/tablero",
-  },
-  {
-    icon: <FiUserCheck />,
-    title: "Login",
-    link: "/PallasFront/login",
   },
 ];
 

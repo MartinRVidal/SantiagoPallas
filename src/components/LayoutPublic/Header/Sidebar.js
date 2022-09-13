@@ -18,45 +18,35 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import Collapse from "@mui/material/Collapse";
 import showAlert from "../../../shared/showAlert";
+import PallasFavicon from "../../../image/ico-favicon.png";
 
 const Sidebar = () => {
-  const sidebarResponsive = matchMedia("(max-width: 1000px)");
-  // const cambiarMQ = (mediaQ) => {
-  //   if (mediaQ.matches === false) {
-  //     return true;
-  //   }
-  // };
-  // cambiarMQ(sidebarResponsive)
+  const sidebarResponsive = matchMedia("(max-width: 768px)");
+
   const history = useHistory();
-  const [sidebar, setSidebar] = useState(
+  const [alwaysShowSidebar, setAlwaysShowSidebar] = useState(
     sidebarResponsive.matches ? false : true
   );
   const [open, setOpen] = useState(false);
-  const [open2, setOpen2] = useState(false);
-  const [open3, setOpen3] = useState(false);
+
   const handleClick = () => {
     setOpen(!open);
   };
-  const handleClick2 = () => {
-    setOpen2(!open2);
-  };
-  const handleClick3 = () => {
-    setOpen3(!open3);
-  };
-  const showSidebar = () => setSidebar(!sidebar);
+
+  const showSidebar = () => setAlwaysShowSidebar(!alwaysShowSidebar);
 
   // Funciona, buscar manera de optimizar
-  useEffect(() => {
+  /*useEffect(() => {
     if (sidebar === true) {
       window.document.querySelector(".sidebar_header").style.paddingLeft =
-        "300px";
+        "0px";
       window.document.querySelector(".sidebar_header").style.transition =
         "350ms";
     } else {
       window.document.querySelector(".sidebar_header").style.paddingLeft =
         "0px";
     }
-  }, [sidebar]);
+  }, [sidebar]);*/
 
   const handleSessionClose = () => {
     localStorage.removeItem("token");
@@ -70,19 +60,19 @@ const Sidebar = () => {
   return (
     <div>
       <div className="sidebar_sidebar">
-        <div className="sidebar_menu-bars">
-          <GiHamburgerMenu onClick={showSidebar} />
-        </div>
+          <div className="sidebar_menu-bars">
+            <GiHamburgerMenu onClick={showSidebar} />
+          </div>
       </div>
       {/* <nav className="sidebar_nav-menu" style={{width: sidebar ? "200px" : "0px"}}></nav> */}
-      <nav className={sidebar ? "sidebar_nav-menu active" : "sidebar_nav-menu"}>
+      <nav className={alwaysShowSidebar ? "sidebar_nav-menu active" : "sidebar_nav-menu"}>
         <ul className="sidebar_nav-menu--items">
-          <li className="sidebar_sidebar-toggle">
-            <div className="sidebar_menu-bars">
-              <AiOutlineClose onClick={showSidebar} />
-            </div>
-          </li>
-          <li className="sidebar_sidebar--title">Pallas</li>
+            <li className="sidebar_sidebar-toggle">
+              <div className="sidebar_menu-bars">
+                <AiOutlineClose onClick={showSidebar} />
+              </div>
+            </li>
+            <li className="sidebar_sidebar--title"><img className="imagen-sidebar" src={PallasFavicon} alt=""/>Santiago Pallas</li>
           {DataSidebar.map((e, i) => {
             return (
               <li key={i} className="sidebar_data--items">
@@ -148,20 +138,20 @@ const Sidebar = () => {
             className="sidebar_submenu"
           >
             <ListItemButton
-              onClick={handleClick2}
+              onClick={handleClick}
               className="sidebar_collapses"
             >
               <ListItemIcon className="sidebar_container-icon">
                 <GiSecurityGate style={{ color: "white" }} />
               </ListItemIcon>
               <ListItemText primary="Seguridad" />
-              {open2 ? (
+              {open ? (
                 <MdExpandLess style={{ marginRight: "10px" }} />
               ) : (
                 <MdExpandMore style={{ marginRight: "10px" }} />
               )}
             </ListItemButton>
-            <Collapse in={open2} timeout="auto" unmountOnExit>
+            <Collapse in={open} timeout="auto" unmountOnExit>
               <List component="div" disablePadding>
                 {DataSeguridad.map((e, i) => {
                   return (
@@ -183,20 +173,20 @@ const Sidebar = () => {
 
           <div className="sidebar_submenu">
             <ListItemButton
-              onClick={handleClick3}
+              onClick={handleClick}
               className="sidebar_collapses"
             >
               <ListItemIcon className="sidebar_container-icon">
                 <MdPendingActions style={{ color: "white" }} />
               </ListItemIcon>
               <ListItemText primary="Procesos" />
-              {open3 ? (
+              {open ? (
                 <MdExpandLess style={{ marginRight: "10px" }} />
               ) : (
                 <MdExpandMore style={{ marginRight: "10px" }} />
               )}
             </ListItemButton>
-            <Collapse in={open3} timeout="auto" unmountOnExit>
+            <Collapse in={open} timeout="auto" unmountOnExit>
               <div>
                 {DataProcesos.map((e, i) => {
                   return (
