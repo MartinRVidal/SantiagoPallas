@@ -100,8 +100,7 @@ const TipoDeArticulos = (patchData) => {
                 <Button
                   type="submit"
                   className={classes.btn}
-                  disabled={statusForm}
-                >
+                  disabled={statusForm}>
                   {patchData?.location?.state?.id ? "Editar" : "Crear"}
                 </Button>
               </form>

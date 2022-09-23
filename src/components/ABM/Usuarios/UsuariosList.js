@@ -8,7 +8,7 @@ import { usuariosAction } from "../../../redux/actionsABM/reducerUsuarios";
 import showAlert from "../../../shared/showAlert";
 import { privateDeleteRequest } from "../../../services/privateApiServices";
 import Spiner from "../../../shared/spiner";
-import Addabm from "../../../shared/addABM/addabm";
+import Addabmuser from "../../../shared/addABM/addabmuser";
 import TableCell from "@material-ui/core/TableCell";
 import TableRow from "@material-ui/core/TableRow";
 import Table from "@material-ui/core/Table";
@@ -21,6 +21,8 @@ import ButtonsNavigation from "../../ButtonsNavigation/ButtonsNavigation";
 import { MdSecurity } from "react-icons/md";
 import { AiFillDashboard } from "react-icons/ai";
 import { GiSecurityGate } from "react-icons/gi";
+import { FaSearch } from "react-icons/fa";
+import { GrUpdate } from "react-icons/gr";
 
 const UsuariosList = () => {
   const dispatch = useDispatch();
@@ -73,7 +75,6 @@ const UsuariosList = () => {
       <Header>
         <header className="list_header">
           <h1>Usuarios</h1>
-          <Addabm to="/PallasFront/usuarios-form" />
         </header>
         <ButtonsNavigation
           label1="Dashboard"
@@ -93,6 +94,11 @@ const UsuariosList = () => {
                 <TableCell>Email</TableCell>
                 <TableCell>Rol</TableCell>
               </TableRow>
+              <div className="container-search-add-res">
+              <Addabmuser to="/PallasFront/usuarios-form" />
+              <button className="boton-search"><FaSearch/></button>
+              <button className="boton-res"><GrUpdate/></button>
+              </div>
             </TableHead>
             <TableBody>
               {!loading ? (

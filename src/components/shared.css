@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;300;400;600;900&display=swap');
+
+
 .input-error {
   color: var(--colorError);
 }
@@ -50,7 +53,9 @@
 }
 
 .list_titulos td {
-  font-weight: 900;
+  font-weight: 400;
+  font-size: 18px ;
+  font-family: 'Source Sans Pro', sans-serif;
 }
 
 .list_container-buttons {
@@ -185,6 +190,88 @@
   align-items: center;
 }
 
+
+
+.MuiTableCell-root {
+    display: table-cell;
+    padding-bottom: 10px !important;
+    padding-top: 10px !important;
+    padding-left: 18px !important;
+    font-size: 0.875rem;
+    text-align: left;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-weight: 400;
+    line-height: 1.43;
+    letter-spacing: 0.01071em;
+    vertical-align: inherit;
+    border-bottom: none !important;
+}
+
+.MuiTableRow-root{
+  border-bottom: 1px solid #ddd;
+}
+
+.list_titulos {
+  color: inherit;
+  outline: 0;
+  vertical-align: middle;
+  width: 100%;
+  border-bottom: none !important;
+}
+
+.loader {
+    width: 162px ;
+    font-size: 0px;
+    display: inline-block;
+    position: fixed;
+    top: 40%;
+    left: 45%;
+}
+
+.container-search-add-res{
+  display: flex;
+  flex-direction: row;
+}
+
+.boton-search{
+  width: 40px;
+  background-color: #2986cc;
+  margin-left: 5px;
+  color: white;
+  font-size: 15px;
+  text-decoration: none;
+  align-items: center;
+  display: flex;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  justify-content: center;
+  border: none !important;
+}
+
+.boton-search:hover {
+  color: white;
+  background-color: #2983aa;
+}
+
+.boton-res {
+  width: 40px;
+  background-color: white;
+  margin-left: 5px;
+  color: black;
+  font-size: 15px;
+  text-decoration: none;
+  align-items: center;
+  display: flex;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  justify-content: center;
+  border: 1px solid #ddd;
+}
+
+.boton-res:hover {
+  border: 1px solid rgb(188, 188, 188);
+  background-color: #ddd;
+}
 
 @media (min-width: 500px) {
   .list_container-table tr .list_options {

@@ -8,7 +8,7 @@ import { tiposDeMedidasAction } from "../../../redux/actionsABM/reducerTiposDeMe
 import showAlert from "../../../shared/showAlert";
 import { privateDeleteRequest } from "../../../services/privateApiServices";
 import Spiner from "../../../shared/spiner";
-import Addabm from "../../../shared/addABM/addabm";
+import Addabmmed from "../../../shared/addABM/addabmmed";
 import TableCell from "@material-ui/core/TableCell";
 import TableRow from "@material-ui/core/TableRow";
 import Table from "@material-ui/core/Table";
@@ -20,7 +20,8 @@ import Paper from "@material-ui/core/Paper";
 import ButtonsNavigation from "../../ButtonsNavigation/ButtonsNavigation";
 import { MdAddTask } from "react-icons/md";
 import { AiFillDashboard } from "react-icons/ai";
-import { FaTasks } from "react-icons/fa";
+import { FaTasks,  FaSearch } from "react-icons/fa";
+import { GrUpdate } from "react-icons/gr";
 
 const TiposDeMedidasList = () => {
   const dispatch = useDispatch();
@@ -77,7 +78,6 @@ const TiposDeMedidasList = () => {
       <Header>
         <header className="list_header">
           <h1>Tipos de medidas</h1>
-          <Addabm to="/PallasFront/tipos-de-medidas-form" />
         </header>
         <ButtonsNavigation
           label1="Dashboard"
@@ -95,6 +95,11 @@ const TiposDeMedidasList = () => {
               <TableRow className="list_titulos">
                 <TableCell>Nombre</TableCell>
               </TableRow>
+              <div className="container-search-add-res">
+              <Addabmmed to="/PallasFront/tipos-de-medidas-form" />
+              <button className="boton-search"><FaSearch/></button>
+              <button className="boton-res"><GrUpdate/></button>
+              </div>
             </TableHead>
             <TableBody>
               {!loading ? (

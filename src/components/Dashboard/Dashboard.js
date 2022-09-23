@@ -5,27 +5,29 @@ import { AiFillDashboard } from "react-icons/ai";
 import Header from "../LayoutPublic/Header/Header";
 import "./dashboard.css";
 import ButtonsNavigation from "../ButtonsNavigation/ButtonsNavigation";
-import ClipLoader from "react-spinners/ClipLoader";
+import GridLoader from "react-spinners/GridLoader";
 import { useState , useEffect } from "react";
-
 
 const Dashboard = () => {
   const history = useHistory();
 
-  const [loading , setLoading] = useState(false)
-  useEffect(()=> {
+  const [loading, setLoading] = useState(false)
+  useEffect(() => {
     setLoading(true)
-    setTimeout(()=> {
+    setTimeout(()=>{
       setLoading(false)
-    },1000)
+    },700)
   },[]);
 
+
   return (
-    <div>
-      {   
-          loading?
-            <ClipLoader color={"black"} loading={loading} size={100} className="spinner" />
-            :
+    loading?
+    <GridLoader
+      color="black"
+      size={50}
+      className="loader"
+      />
+    :
       <Header>
         <div className="dashboard_allContainer">
           <h1 className="dashboard-tituloPrincipal">
@@ -52,9 +54,7 @@ const Dashboard = () => {
           </div>
         </div>
       </Header>
-      }
-    </div>
-  );
+    )
 };
 
 export default Dashboard;

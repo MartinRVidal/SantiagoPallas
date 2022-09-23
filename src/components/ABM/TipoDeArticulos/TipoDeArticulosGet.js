@@ -20,7 +20,8 @@ import Paper from "@material-ui/core/Paper";
 import ButtonsNavigation from "../../ButtonsNavigation/ButtonsNavigation";
 import { MdAddTask } from "react-icons/md";
 import { AiFillDashboard } from "react-icons/ai";
-import { FaTasks } from "react-icons/fa";
+import { FaTasks, FaSearch } from "react-icons/fa";
+import { GrUpdate } from "react-icons/gr";
 
 const TipoDeArticulosGet = () => {
   const dispatch = useDispatch();
@@ -77,7 +78,6 @@ const TipoDeArticulosGet = () => {
       <Header>
         <header className="list_header">
           <h1>Tipos de articulos</h1>
-          <Addabm to="/PallasFront/tipo-de-articulos-form" />
         </header>
         <ButtonsNavigation
           label1="Dashboard"
@@ -93,8 +93,13 @@ const TipoDeArticulosGet = () => {
           <Table aria-label="simple table">
             <TableHead>
               <TableRow className="list_titulos">
-                <TableCell>Nombre</TableCell>
+                <TableCell>Articulos</TableCell>
               </TableRow>
+              <div className="container-search-add-res">
+              <Addabm to="/PallasFront/tipo-de-articulos-form" />
+              <button className="boton-search"><FaSearch/></button>
+              <button className="boton-res"><GrUpdate/></button>
+              </div>
             </TableHead>
             <TableBody>
               {!loading ? (

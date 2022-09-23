@@ -4,13 +4,19 @@ import { AiFillDashboard } from "react-icons/ai";
 import { DiTrello } from "react-icons/di";
 import { VscServerProcess } from "react-icons/vsc";
 import { MdAddTask, MdSecurity } from "react-icons/md";
+import { AiFillSetting } from "react-icons/ai";
 
 export const DataUser = [  {
   icon: <FiUserCheck />,
-  title: "Login",
-  link: "/PallasFront/login",
+  title: "Usuario",
 },];
 
+export const DataUserConfig = [ {
+  icon: <AiFillSetting/>,
+  title: "Configuracion",
+  link: "/PallasFront/ConfiguracionUsuario"
+
+},]
 
 export const DataSidebar = [
   {
@@ -18,11 +24,11 @@ export const DataSidebar = [
     title: "Dashboard",
     link: "/PallasFront",
   },
-  {
+  /*{
     icon: <DiTrello />,
     title: "Tablero",
     link: "/PallasFront/tablero",
-  },
+  },*/
 ];
 
 export const DataConfiguracion = [

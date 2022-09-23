@@ -8,7 +8,7 @@ import { rolesAction } from "../../../redux/actionsABM/reducerRoles";
 import showAlert from "../../../shared/showAlert";
 import { privateDeleteRequest } from "../../../services/privateApiServices";
 import Spiner from "../../../shared/spiner";
-import Addabm from "../../../shared/addABM/addabm";
+import Addabm from "../../../shared/addABM/addabmrol";
 import TableCell from "@material-ui/core/TableCell";
 import TableRow from "@material-ui/core/TableRow";
 import Table from "@material-ui/core/Table";
@@ -21,6 +21,8 @@ import ButtonsNavigation from "../../ButtonsNavigation/ButtonsNavigation";
 import { MdSecurity } from "react-icons/md";
 import { AiFillDashboard } from "react-icons/ai";
 import { GiSecurityGate } from "react-icons/gi";
+import { FaSearch } from "react-icons/fa";
+import { GrUpdate } from "react-icons/gr";
 
 const RolesList = () => {
   const dispatch = useDispatch();
@@ -72,7 +74,6 @@ const RolesList = () => {
       <Header>
         <header className="list_header">
           <h1>Roles</h1>
-          <Addabm to="/PallasFront/roles-form" />
         </header>
         <ButtonsNavigation
           label1="Dashboard"
@@ -88,8 +89,13 @@ const RolesList = () => {
           <Table sx={{ minWidth: 750 }} aria-label="simple table">
             <TableHead>
               <TableRow className="list_titulos">
-                <TableCell>Nombre</TableCell>
+                <TableCell>Rol</TableCell>
               </TableRow>
+              <div className="container-search-add-res">
+              <Addabm to="/PallasFront/roles-form" />
+              <button className="boton-search"><FaSearch/></button>
+              <button className="boton-res"><GrUpdate/></button>
+              </div>
             </TableHead>
             <TableBody>
               {!loading ? (

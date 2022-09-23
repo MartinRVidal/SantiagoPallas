@@ -19,6 +19,8 @@ import "./login.css";
 import "../shared.css";
 import logoweb from "../../image/logo-web.png";
 import { useEffect } from "react";
+import { useState } from "react";
+import GridLoader from "react-spinners/GridLoader";
 
 
 function Copyright() {
@@ -88,8 +90,22 @@ export default function SignIn() {
       .max(50, "La contraseña es demasiado larga"),
   });
 
+  const [loading, setLoading] = useState(false)
+  useEffect(() => {
+    setLoading(true)
+    setTimeout(()=>{
+      setLoading(false)
+    },700)
+  },[]);
+
   return (
-    <div>
+    loading?
+    <GridLoader
+      color="black"
+      size={50}
+      className="loader"
+      />
+    :
       <div className="login_container">
         <div className="login_container-formulario">
           <Formik
@@ -180,6 +196,5 @@ export default function SignIn() {
           <img src={santiagoPallasLogin} alt="Imagen no encontrada" />
         </div>
       </div>
-    </div>
-  );
+    )
 }

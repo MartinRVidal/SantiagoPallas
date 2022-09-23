@@ -1,16 +1,34 @@
 .Addabm_link {
-  text-decoration: none;
+  /*text-decoration: none;
   transition: 0.2s ease-in-out;
   color: var(--primary);
   font-size: 3em;
   position: absolute;
   bottom: 10px;
   right: 30px;
-  position: fixed;
+  position: fixed;*/
+  width: 150px;
+  background-color: #2986cc;
+  margin-left: 16px;
+  color: white;
+  font-size: 30px;
+  text-decoration: none;
+  align-items: center;
+  display: flex;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  justify-content: center;
+}
+
+.spanlink {
+  font-size: 15px;
+  padding-right: 6px;
+
 }
 
 .Addabm_link:hover {
-  color: var(--hoverPrimary);
+  color: white;
+  background-color: #2983aa;
 }
 
 @media (max-width: 600px) {

@@ -7,12 +7,15 @@ export default function ButtonsNavigation({
   label1,
   label2,
   label3,
+  label4,
   icon1,
   icon2,
   icon3,
+  icon4,
   link1,
   link2,
   link3,
+  link4,
 }) {
   return (
     <div>
@@ -43,6 +46,15 @@ export default function ButtonsNavigation({
         >
           {icon3}
           {label3}
+        </Link>
+        <Link
+          underline="hover"
+          sx={{ display: "flex", alignItems: "center" }}
+          color="inherit"
+          to={link4}
+        >
+          {icon4}
+          {label4}
         </Link>
       </Box>
     </div>

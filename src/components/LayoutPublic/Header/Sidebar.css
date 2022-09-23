@@ -3,7 +3,14 @@
   height: 60px;
   display: flex;
   justify-content: space-between;
-  background-color: black;
+  background-color: #222222;
+  align-items: center;
+  margin-right: 15px;
+}
+
+.btn-secondary{
+  background: #222222 !important;
+  border: none !important;
 }
 
 .sidebar_menu-bars {
@@ -33,16 +40,53 @@
   transition: 350ms;
 }
 
+.sidebar_submenu a{ 
+  font-weight: 100;
+  padding-left: 30px;
+}
+
+.MuiButtonBase-root a:hover{
+  color: white !important;
+  background: #333333 !important;
+}
+
+.MuiButtonBase-root span{
+  font-weight: 100 !important;
+  font-size: 15.3px !important;
+}
+
+.MuiButtonBase-root{
+  padding-left: 0px !important;
+  font-weight: 100 !important;
+}
+
+.sidebar_data--items a{
+  font-weight: 100;
+}
+
+.sidebar_ulConfig{
+  padding-bottom: 0% !important;
+}
+
+.sidebar_data--items a:hover {
+  color: white;
+  background-color: #393939 !important;
+}
+
 .sidebar_data--items {
   display: flex;
   justify-content: flex-start;
   align-items: center;
   list-style: none;
   height: 40px;
+  background-color: #333333 !important;
+  padding-right: 0% !important;
 }
 
 .sidebar_nav-menu--items {
   width: 100%;
+  padding-left: 0px;
+  background-color: #333333;
 }
 
 .sidebar_sidebar-toggle {
@@ -74,7 +118,7 @@
   padding: 0 10px;
   height: 60px;
   display: flex;
-  background-color: black;
+  background-color:#222222;
   align-items: center;
 }
 
@@ -83,25 +127,12 @@
 }
 
 .sidebar_session-close {
-  background-color: white;
-  color: black;
-  font-weight: 700;
-  padding: 6px 8px;
-  border-radius: 4px;
-  transition: 0.2s ease-in-out;
   border: none;
-  cursor: pointer;
-}
-.sidebar_session-close:hover {
-  background: black;
-  color: white;
-  border: 1px solid white;
 }
 
 .sidebar_cerrar_seccion{
   justify-content: center;
   display: flex;
-  margin-top: 15px;
 }
 
 /*** Headersidebar ***/
@@ -138,10 +169,11 @@
 .sidebar_collapses {
   width: 100%;
   padding: 4px 0px 4px 4px !important;
+  background-color: #333333 !important;
 }
 
 .sidebar_collapses:hover {
-  background-color: var(--hoverTertiary) !important;
+  background-color: #393939 !important;
 }
 
 .sidebar_container-icon {

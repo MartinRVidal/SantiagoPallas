@@ -1,0 +1,19 @@
+.dropdown-item:active {
+    background: transparent !important;
+    background-color: white !important;
+    color: black;
+}
+
+
+.sidebar_cerrar_seccion a {
+    text-decoration: none;
+    color: black;
+}
+
+.icon{
+    margin-right: 5px;
+}
+
+.title{
+    margin-left: 3px;
+}

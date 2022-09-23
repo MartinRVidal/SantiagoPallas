@@ -16,13 +16,13 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import Collapse from "@mui/material/Collapse";
-import showAlert from "../../../shared/showAlert";
 import PallasFavicon from "../../../image/ico-favicon.png";
+import User from "../../UserDropdown/User";
 
 
 
 const DeskSidebar = () => {
-    const history = useHistory();
+    //const history = useHistory();
     const [open, setOpen] = useState(false);
     const [open2, setOpen2] = useState(false);
     const [open3, setOpen3] = useState(false);
@@ -35,31 +35,11 @@ const DeskSidebar = () => {
     const handleClick3 = () => {
         setOpen3(!open3);
     };
-    
-    const handleSessionClose = () => {
-        localStorage.removeItem("token");
-        showAlert({
-            type: "success",
-            title: "Sesión cerrada",
-            message: "Sesión cerrada correctamente",
-        }) && history.push("/PallasFront/login");
-    };
 
     return (
         <div>
             <div className="sidebar_sidebar">
-                <div className="sidebar_menu-bars">
-                {DataUser.map((e, i) => {
-                            return (
-                                <li key={i} className="sidebar_data-user">
-                                    <Link to={e.link}>
-                                        <span>{e.icon}</span>
-                                        <span>{e.title}</span>
-                                    </Link>
-                                </li>
-                            );
-                        })}
-                </div>
+                < User />
             </div>
             <div>
                 <nav className="sidebar_nav-menu active">
@@ -192,13 +172,6 @@ const DeskSidebar = () => {
                                     })}
                                 </div>
                             </Collapse>
-                        </div>
-                        <div className="sidebar_cerrar_seccion">
-                            <button
-                                className="sidebar_session-close"
-                                onClick={handleSessionClose}>
-                                Cerrar Session
-                            </button>
                         </div>
                     </ul>
                 </nav>

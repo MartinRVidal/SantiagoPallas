@@ -1,0 +1,61 @@
+.contenedor-label-input {
+    display: flex;
+    flex-direction: column;
+    margin: 3%;
+}
+
+.div-boton{
+    display: flex;
+    justify-content: end;
+    border-top: 1px solid #ddd;
+}
+
+.cambiarcontra{
+    margin: 3%;
+    font-weight: 300;
+}
+
+.boton-enviar {
+    margin-right: 3%;
+    margin-bottom: 2%;
+    margin-top: 2%;
+    color: white;
+    font-size: 14px;
+    background-color: #3C8DBC;
+    padding: 6px 12px;
+    border-radius: 5px;
+    border: none !important;
+}
+
+.boton-enviar:hover{
+    background-color: #367fa9;
+}
+
+.label{
+    font-weight: 700;
+    color: black;
+    font-size: 15px;
+}
+
+.input{
+    display: block;
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+}
+
+.input::selection{
+    border-color: #3C8DBC;
+    color: #3C8DBC;
+    background-color: #ccc;
+}
+
+.botonnavegacion a{
+    margin: 0px;
+}
