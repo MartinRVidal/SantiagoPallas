@@ -83,7 +83,7 @@ const RolesForm = (patchData) => {
                   margin="normal"
                   name="name"
                   id="titulo"
-                  label="Nombre del Tipo de Medida"
+                  label="Nombre del Tipo de Rol"
                   variant="outlined"
                   onChange={handleChange}
                   onBlur={handleBlur}

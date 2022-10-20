@@ -34,6 +34,8 @@ import ArticulosForm from "./components/ABM/Articulos/ArticulosForm";
 import PageNotFound from "./components/PageNotFound/PageNotFound";
 import FormularioConfig from "./components/FormulariosUserConfig/FormulariosConfig";
 import GridLoader from "react-spinners/GridLoader";
+import Ordendeproduccion from "./components/ABM/OrdenProduccion/OrdenForm";
+import OrdenFormList from "./components/ABM/OrdenProduccion/OrdenFormList";
 const App = () => {
   const [data, setData] = useState(mockData);
 
@@ -230,10 +232,20 @@ const App = () => {
                 path="/PallasFront/page-not-found"
                 component={PageNotFound}
               />
+              <PrivateRoutes
+                exact
+                path="/PallasFront/Ordendeproduccion"
+                component={OrdenFormList}
+              />
               <Route
                 exact
                 path="/PallasFront/ConfiguracionUsuario"
                 component={FormularioConfig}
+              />
+              <PrivateRoutes
+                exact
+                path="/PallasFront/orden-prod-list"
+                component={Ordendeproduccion}
               />
             </Switch>
           </div>

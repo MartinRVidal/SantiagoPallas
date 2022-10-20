@@ -9,12 +9,14 @@ const FormularioConfig = () => {
     return (
         <>
             <Header>
-                <h1 className="dashboard-tituloPrincipal">
-                    Configuracion <small className="span-tituloprincipal" >Cuenta de usuario</small>
-                </h1>
-                <ButtonsNavigation label3="Dashboard" className="botonnavegacion" />
-                <Formpass />
-                <FormEmail />
+                <div className="form_allContainer">
+                    <h1 className="dashboard-tituloPrincipal">
+                        Configuracion <small className="span-tituloprincipal" >Cuenta de usuario</small>
+                    </h1>
+                    <ButtonsNavigation label1="Dashboard" label2="Congifuracion usuario" className="botonnavegacion" />
+                    <Formpass />
+                    <FormEmail />
+                </div>
             </Header>
         </>
     )

@@ -28,7 +28,7 @@ const Dashboard = () => {
       className="loader"
       />
     :
-      <Header>
+      <Header> 
         <div className="dashboard_allContainer">
           <h1 className="dashboard-tituloPrincipal">
             <AiFillDashboard />

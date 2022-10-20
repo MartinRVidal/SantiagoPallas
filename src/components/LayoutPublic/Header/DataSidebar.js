@@ -5,7 +5,7 @@ import { DiTrello } from "react-icons/di";
 import { VscServerProcess } from "react-icons/vsc";
 import { MdAddTask, MdSecurity } from "react-icons/md";
 import { AiFillSetting } from "react-icons/ai";
-
+import { FaBoxes } from "react-icons/fa";
 export const DataUser = [  {
   icon: <FiUserCheck />,
   title: "Usuario",
@@ -92,5 +92,10 @@ export const DataProcesos = [
     icon: <VscServerProcess />,
     title: "Consulta de órdenes",
     link: "/",
+  },
+  {
+    icon: <FaBoxes />,
+    title: "Orden de producción",
+    link: "/PallasFront/Ordendeproduccion",
   },
 ];

@@ -1,0 +1,226 @@
+.h4-orden {
+    margin: 10px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #ddd;
+}
+
+.MuiInputBase-input{
+    padding-left: 10px !important;
+    padding-top: 10px !important;
+}
+
+.divider {
+    margin-bottom: 20px;
+}
+
+.css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root{
+    color: rgba(0, 0, 0, 0.6) !important;
+    font-weight: 400 !important;
+    font-size: 1rem !important;
+    line-height: 1.4375em !important;
+    letter-spacing: 0.00938em !important;
+    padding: 0 !important;
+    display: block !important;
+    transform-origin: top left !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    max-width: calc(133% - 24px) !important;
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    transform: translate(14px, -9px) scale(0.75) !important;
+    transition: color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,max-width 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms !important;
+    z-index: 1 !important;
+    pointer-events: auto !important;
+    user-select: none !important;
+    background-color: white !important;
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+}
+
+.MuiInput-underline:before {
+    border: none !important;
+}
+
+.MuiInput-underline::after {
+    border: none !important;
+}
+
+.box-orden {
+    margin: 10px;
+}
+
+.input-fecha label, .input-label label{
+    color: rgba(0, 0, 0, 0.6) !important;
+    font-weight: 400 !important;
+    font-size: 1rem !important;
+    line-height: 1.4375em !important;
+    letter-spacing: 0.00938em !important;
+    padding: 0 !important;
+    display: block !important;
+    transform-origin: top left !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    max-width: calc(133% - 24px) !important;
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    transform: translate(14px, -9px) scale(0.75) !important;
+    transition: color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,max-width 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms !important;
+    z-index: 1 !important;
+    pointer-events: auto !important;
+    user-select: none !important;
+    background-color: white !important;
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+}
+
+.input-fecha {
+    border-radius: 5px !important;
+    border: 1px solid #ddd !important;
+}
+
+.input-fecha:hover {
+    border: 1px solid black !important;
+}
+
+label + .MuiInput-formControl {
+    margin-top: 0px !important;
+}
+
+.css-6hp17o-MuiList-root-MuiMenu-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    outline: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 10px !important;
+}
+
+.css-6hp17o-MuiList-root-MuiMenu-list li {
+    padding-left: 10px;
+    background: white !important;
+    font-weight: 400 !important;
+    color: grey;
+}
+
+.css-6hp17o-MuiList-root-MuiMenu-list li:hover {
+    background: #ddd !important;
+    border-radius: 5px;
+}
+
+.MuiPickersToolbar-toolbar {
+    background-color: #2986cc !important;
+}
+
+.MuiPickersDay-daySelected:hover {
+    background-color: #ddd !important;
+}
+
+.MuiPickersDay-daySelected {
+    background-color: #2986cc !important;
+}
+
+.MuiButton-textPrimary span{
+    color: #2986cc !important;
+    font-weight: 600 !important;
+}
+
+.main-divider-bottom {
+    width: 80%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/*.medidas {
+    width: 100px !important;
+}
+
+.articulo-insumo {
+    width: 400px !important;
+}
+
+.x {
+    width: 188px !important;
+}*/
+
+.buscar2 {
+    width: 35px;
+    padding: 8px;
+    border: none ;
+    color: white;
+    background-color: black;
+    height: 37px;
+    right: 30px !important;
+    border-radius: 5px;
+}
+
+.button-add {
+    background-color: #2986cc;
+    display: flex;
+    place-items: center;
+    width: 30px;
+    height: 30px;
+    border: none;
+    border-radius: 50%;
+    text-decoration: none;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+    align-items: center !important;
+    justify-content: center;
+}
+
+.button-add a {
+    font-size: 25px;
+    color: white;
+    padding-bottom: 5px;
+    padding-left: 1px;
+}
+
+.titulos-label label{
+    font-size: 22px !important;
+    top: -4px !important;
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+    background-color: white !important;
+}
+
+.css-r8u8y9 {
+    padding: 8px 10px !important;
+}
+
+.css-1km1ehz {
+    font-weight: 400 !important;
+    border-radius: 5px !important;
+}
+
+.css-1km1ehz:hover {
+    background-color: #ddd !important;
+}
+
+.boton-guardar {
+    border-radius: 5px;
+    padding: 6px 10px;
+    font-weight: 400;
+    color: white;
+    background-color: #2986cc;
+    border: none;
+}
+
+.boton-guardar:hover {
+    background-color: #1f78bc;
+}
+
+.div-boton-guardar {
+    margin-top: 60px;
+}

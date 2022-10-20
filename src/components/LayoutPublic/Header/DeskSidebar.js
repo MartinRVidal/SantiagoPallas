@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from "react";
-import { Link, useHistory } from "react-router-dom";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import {
 DataSidebar,
 DataConfiguracion,
 DataSeguridad,
 DataProcesos,
-DataUser,
 } from "./DataSidebar";
 import "./Sidebar.css";
 import { FaTasks } from "react-icons/fa";
