@@ -205,8 +205,8 @@ export default function EnhancedTable() {
   const [orderBy, setOrderBy] = React.useState("id");
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
-  const { tipoDeArticulosInfo, loading } = useSelector(
-    (store) => store.articulos
+  const { tipoDeArticulosInfo } = useSelector(
+    (store) => store.articulos     
   );
   console.log(tipoDeArticulosInfo);
 

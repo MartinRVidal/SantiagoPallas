@@ -10,7 +10,7 @@
 }
 
 .divider {
-    margin-bottom: 20px;
+    margin: 25px 10px
 }
 
 .css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root{
@@ -134,8 +134,7 @@ label + .MuiInput-formControl {
 
 .main-divider-bottom {
     width: 80%;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin: 25px 10px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -215,6 +214,9 @@ label + .MuiInput-formControl {
     color: white;
     background-color: #2986cc;
     border: none;
+    margin: 40px 10px;
+    width: 100px;
+    font-size: 1.2rem;
 }
 
 .boton-guardar:hover {
@@ -223,4 +225,28 @@ label + .MuiInput-formControl {
 
 .div-boton-guardar {
     margin-top: 60px;
+}
+
+.campo-oculto {
+    display: none;
+}
+
+.css-e39x9u-MuiAutocomplete-root .MuiOutlinedInput-root {
+    padding: 0px !important;
+}
+
+td {
+    width: auto !important;
+}
+
+.tablasecunadaria {
+    width: 81% !important;
+}
+
+.acciones {
+    text-align: center !important;
+}
+
+.row-bot {
+    text-align: center !important;
 }

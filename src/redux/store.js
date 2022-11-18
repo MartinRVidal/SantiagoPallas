@@ -8,6 +8,8 @@ import DepositosReducer from "./actionsABM/reducerDepositos";
 import ArticulosReducer from "./actionsABM/reducerArticulos";
 import LoginReducer from "./login";
 import RegisterReducer from "./register";
+import ClientesReducer from "./actionsABM/reducerClientes";
+import OrdenesReducer from "./actionsABM/reducerOrdenes";
 
 const rootReducer = combineReducers({
   user: LoginReducer,
@@ -18,6 +20,8 @@ const rootReducer = combineReducers({
   roles: RolesReducer,
   depositos: DepositosReducer,
   articulos: ArticulosReducer,
+  clientes: ClientesReducer,
+  ordenes: OrdenesReducer,
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

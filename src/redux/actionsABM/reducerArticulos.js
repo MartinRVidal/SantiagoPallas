@@ -2,12 +2,16 @@ import { getDataMethodPrivate } from "../../services/privateApiServices";
 
 const defaultValue = {
   articulosInfo: [],
+  clientesInfo: [],
   tipoDeArticulosInfo: [],
+  usuariosInfo: [],
   loading: false,
 };
 const TIPO_DE_ARTICULOS = "TIPO_DE_ARTICULOS";
 const ARTICULOS = "ARTICULOS";
 const LOADING = "LOADING";
+const CLIENTES = "CLIENTES";
+const USUARIOS = "USUARIOS";
 
 export default function ArticulosReducer(
   state = defaultValue,
@@ -25,6 +29,19 @@ export default function ArticulosReducer(
       return {
         ...state,
         tipoDeArticulosInfo: payload.tipoDeArticulosInfo,
+        error: false,
+      };
+      case CLIENTES:
+        return {
+        ...state,
+        clientesInfo: payload.clientesInfo,
+        error: false,
+        loading: false,
+      };
+    case USUARIOS:
+      return {
+        ...state,
+        usuariosInfo: payload.usuariosInfo,
         error: false,
       };
     case LOADING:
@@ -60,6 +77,42 @@ export const tipoDeArticulosAction = () => async (dispatch) => {
     dispatch({
       type: TIPO_DE_ARTICULOS,
       payload: { tipoDeArticulosInfo: data },
+    });
+  } catch (error) {
+    console.log(error);
+  } finally {
+    dispatch({
+      type: LOADING,
+    });
+  }
+};
+
+export const clientesAction = () => async (dispatch) => {
+  try {
+      const response = await getDataMethodPrivate("Personas/Get");
+      const data = response?.data;
+      console.log(data);
+      dispatch({
+          type: CLIENTES,
+          payload: { clientesInfo: data },
+      });
+  } catch (error) {
+      console.log(error);
+  } finally {
+      dispatch({
+          type: LOADING,
+      });
+  }
+};
+
+export const usuariosAction = () => async (dispatch) => {
+  try {
+    const response = await getDataMethodPrivate("users/get");
+    const data = response?.data;
+    console.log(data);
+    dispatch({
+      type: USUARIOS,
+      payload: { usuariosInfo: data },
     });
   } catch (error) {
     console.log(error);

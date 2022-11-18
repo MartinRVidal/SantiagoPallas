@@ -7,7 +7,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { articulosAction } from "../../../redux/actionsABM/reducerArticulos";
 import showAlert from "../../../shared/showAlert";
 import { privateDeleteRequestByQuery } from "../../../services/privateApiServices";
-import Spiner from "../../../shared/spiner";
 import Addabmart from "../../../shared/addABM/addabmart";
 import TableCell from "@material-ui/core/TableCell";
 import TableRow from "@material-ui/core/TableRow";
@@ -217,7 +216,7 @@ const ArticulosList = () => {
   const [orderBy, setOrderBy] = React.useState("id");
   const dispatch = useDispatch();
   const [deleted, setDeleted] = useState(false);
-  const { articulosInfo, loading } = useSelector((store) => store.articulos);
+  const { articulosInfo } = useSelector((store) => store.articulos);
   console.log(articulosInfo);
 
 

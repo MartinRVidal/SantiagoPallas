@@ -5,7 +5,7 @@ import "./addabm.css";
 
 export default function addabmorden({ to }) {
     return (
-        <Link to={to} role="button">
+        <Link to={to} role="button" type="submit">
             <IoIosAdd />
         </Link>
     );

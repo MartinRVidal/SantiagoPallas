@@ -23,7 +23,6 @@ import {
   articulosAction,
   tipoDeArticulosAction,
 } from "../../../redux/actionsABM/reducerArticulos";
-import { elementType } from "prop-types";
 
 const useStyles = makeStyles((theme) => ({
   title: {
@@ -276,6 +275,7 @@ const ArticulosForm = (patchData) => {
                   <option 
                     hidden
                     value ={9}
+                    // eslint-disable-next-line no-lone-blocks
                     onChange={(e) => {{
                       setIdTipoArticulo(e.target.value);
                       setTipoArticulo(e.target.text);
@@ -287,7 +287,7 @@ const ArticulosForm = (patchData) => {
                   return (
                     <option key={e.id}
                     value={e.id}
-                    selected={ patchData?.location?.state?.idTipoArticulo == e.id ? true : false }
+                    selected={ patchData?.location?.state?.idTipoArticulo === e.id ? true : false }
                     onChange={(e) => {
                       setIdTipoArticulo(e.target.value);
                       setTipoArticulo(e.nombre);
@@ -327,7 +327,7 @@ const ArticulosForm = (patchData) => {
                   {!loading ? (
                     <Spiner />
                   ) : (
-                    articulosInfo?.result?.filter( element => element.idTipoArticulo === 9).map((element, index) => {
+                    articulosInfo?.result?.filter( element => element.idTipoArticulo === 9 ).map((element, index) => {
                       return (
                         (
                           <TableRow

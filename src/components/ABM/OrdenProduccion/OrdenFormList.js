@@ -28,13 +28,9 @@ import "../Abm.css";
 import TableSortLabel from '@mui/material/TableSortLabel';
 import { visuallyHidden } from '@mui/utils';
 import { FaBoxes } from "react-icons/fa";
-
-const listaorden = [
-    {cliente: "santiago pallas", nropedido: "N.123", codorden: "3242344"},
-    {cliente: "santiago pallas", nropedido: "N.123", codorden: "3242344"},
-    {cliente: "santiago pallas", nropedido: "N.123", codorden: "3242344"},
-    {cliente: "santiago pallas", nropedido: "N.123", codorden: "3242344"},
-]
+import { ordenesAction } from "../../../redux/actionsABM/reducerOrdenes";
+import showAlert from "../../../shared/showAlert";
+import {privateDeleteRequest} from "../../../services/privateApiServices";
 
 function TablePaginationActions(props) {
     const theme = useTheme();
@@ -140,16 +136,16 @@ const headCells = [
         label: 'Nro pedido',
     },
     {
-        id: 'cliente',
+        id: 'fechaentrega',
         numeric: false,
         disablePadding: false,
-        label: 'Cliente',
+        label: 'Fecha entrega',
     },
     {
-        id: 'codorden',
+        id: 'iddeposito',
         numeric: false,
         disablePadding: false,
-        label: 'Cod. orden',
+        label: 'Id deposito',
     }
 ];
 
@@ -168,7 +164,7 @@ function EnhancedTableHead(props) {
             <div className="container-search-add-res">
                 <Addabmordenlist to="/PallasFront/orden-prod-list" />
                 <button className="boton-search"><FaSearch /></button>
-                <button className="boton-res"><GrUpdate /></button>
+                <button className="boton-res" type="submit"><GrUpdate /></button>
             </div>
             <TableRow className="list_titulos">
                 {headCells.map((headCell) => (
@@ -213,12 +209,10 @@ export default function OrdenFormList() {
     const [orderBy, setOrderBy] = React.useState("id");
     const [page, setPage] = React.useState(0);
     const [rowsPerPage, setRowsPerPage] = React.useState(5);
-    /*  VER COMO TRAER A LAS ORDENES DESDE BACK
-    
-    const { tipoDeArticulosInfo } = useSelector(
-        (store) => store.articulos
+    const { ordenesInfo } = useSelector(
+        (store) => store.ordenes
     );
-    console.log(tipoDeArticulosInfo);*/
+    console.log(ordenesInfo);
 
     const dispatch = useDispatch();
 
@@ -233,14 +227,10 @@ export default function OrdenFormList() {
     };
 
 
-    /*  VER COMO ELIMINAR CADA UNA DE LAS FILAS DE ORDENES
     
-    async function handleRemove(id, nombre) {
+    async function handleRemove (id) {
         try {
-            await privateDeleteRequest("tiposarticulo/delete", {
-                id,
-                nombre,
-            });
+            await privateDeleteRequest({ url: `ordenestrabajo/delete?id=${id}`});
             showAlert({ type: "success", title: "Eliminado correctamente" });
             setDeletedNew(true);
         } catch (error) {
@@ -249,7 +239,7 @@ export default function OrdenFormList() {
                 title: "No se pudo eliminar",
             });
         }
-    }*/
+    }
 
     const handleChangePage = (event, newPage) => {
         setPage(newPage);
@@ -259,14 +249,14 @@ export default function OrdenFormList() {
         setRowsPerPage(parseInt(event.target.value, 10));
         setPage(0);
     };
-/* FUNCION PARA BORRAR LAS ORDENES
+
     useEffect(() => {
-        dispatch(tipoDeArticulosAction(tipoDeArticulosInfo));
+        dispatch(ordenesAction(ordenesInfo));
         if (deletedNew) {
             setDeletedNew(false);
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [deletedNew, dispatch]);
-*/
 
     return (
         <div>
@@ -293,10 +283,10 @@ export default function OrdenFormList() {
                             order={order}
                             orderBy={orderBy}
                             onRequestSort={handleRequestSort}
-                            // CONTADOR DE FILAS rowCount={tipoDeArticulosInfo?.result?.length}
+                            rowCount={ordenesInfo?.result?.length}
                         />
                         <TableBody>
-                            {stableSort(listaorden.result, getComparator(order, orderBy))
+                            {stableSort(ordenesInfo.result, getComparator(order, orderBy))
                                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                                 .map((element) => {
                                     return (
@@ -308,13 +298,13 @@ export default function OrdenFormList() {
                                             className="list_data"
                                         >
                                             <TableCell component="th" scope="row">
-                                                {element.nropedido}
+                                                {element.numero}
                                             </TableCell>
                                             <TableCell component="th" scope="row">
-                                                {element.cliente}
+                                                {element.fechaEntrega}
                                             </TableCell>
                                             <TableCell component="th" scope="row">
-                                                {element.codorden}
+                                                {element.idDeposito}
                                             </TableCell>
                                             <TableCell>
                                                 <div className="list_container-buttons">
@@ -329,9 +319,9 @@ export default function OrdenFormList() {
                                                     </Link>
                                                     <button
                                                         className="list_options-delete"
-                                                        // DEPENDE LA FUNCION PARA BORRAR</div>onClick={() =>
-                                                            //handleRemove(element.nropedido, element.cliente, element.codorden)
-                                                        //}
+                                                        onClick={() =>
+                                                            handleRemove(element.id)
+                                                        }
                                                     >
                                                         <IoMdTrash />
                                                     </button>
@@ -348,7 +338,7 @@ export default function OrdenFormList() {
                         labelRowsPerPage={"Filas por páginas"}
                         rowsPerPageOptions={[5, 10, 20, { label: 'Todas', value: -1 }]}
                         colSpan={3}
-                        // contador para todas las ordenes count={tipoDeArticulosInfo?.result?.length}
+                        count={ordenesInfo?.result?.length}
                         rowsPerPage={rowsPerPage}
                         page={page}
                         SelectProps={{

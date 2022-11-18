@@ -105,7 +105,6 @@ const App = () => {
   // basename="/PallasFront"
   // http://26.204.148.246/PallasFront/
   // cuando cambio de pantalla me va a http://26.204.148.246/login sin el PallasFront
-
   // Ir a Red -> \\26.204.148.246\PallasFront
 
   const [loading, setLoading] = useState(false)
@@ -130,7 +129,10 @@ const App = () => {
         <Router>
           <div>
             <Switch>
-              <PrivateRoutes exact path="/PallasFront" component={Dashboard} />
+              <PrivateRoutes 
+                exact 
+                path="/PallasFront" 
+                component={Dashboard} />
               <PrivateRoutes
                 exact
                 path="/PallasFront/Configuracion"
