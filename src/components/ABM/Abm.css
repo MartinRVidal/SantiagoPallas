@@ -9,11 +9,11 @@
     width: 100% !important;
 }
 
-.MuiTableCell-body {
+/* .MuiTableCell-body {
     padding-bottom: 8px !important;
     padding-top: 8px !important;
     width: 200px !important;
-}
+} */
 
 .columnas-list{
     border-bottom: 2px solid #ccc !important;

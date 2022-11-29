@@ -236,7 +236,7 @@ const App = () => {
               />
               <PrivateRoutes
                 exact
-                path="/PallasFront/Ordendeproduccion"
+                path="/PallasFront/Consultaorden"
                 component={OrdenFormList}
               />
               <Route

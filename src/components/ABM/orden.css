@@ -4,6 +4,10 @@
     border-bottom: 1px solid #ddd;
 }
 
+.box-orden {
+    margin: 10px;
+}
+
 .MuiInputBase-input{
     padding-left: 10px !important;
     padding-top: 10px !important;
@@ -47,11 +51,33 @@
     border: none !important;
 }
 
-.box-orden {
-    margin: 10px;
-}
 
-.input-fecha label, .input-label label{
+.input-fecha label {
+    color: rgba(0, 0, 0, 0.6) !important;
+    font-weight: 400 !important;
+    font-size: 1rem !important;
+    line-height: 1.4375em !important;
+    letter-spacing: 0.00938em !important;
+    padding: 0 !important;
+    display: block !important;
+    transform-origin: top left !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    max-width: calc(133% - 24px) !important;
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    transform: translate(14px, -9px) scale(0.75) !important;
+    transition: color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,max-width 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms !important;
+    z-index: 1 !important;
+    pointer-events: auto !important;
+    user-select: none !important;
+    background-color: white !important;
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+}
+.titulos-label label {
     color: rgba(0, 0, 0, 0.6) !important;
     font-weight: 400 !important;
     font-size: 1rem !important;
@@ -139,9 +165,9 @@ label + .MuiInput-formControl {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-}
+} 
 
-/*.medidas {
+.medidas {
     width: 100px !important;
 }
 
@@ -151,7 +177,7 @@ label + .MuiInput-formControl {
 
 .x {
     width: 188px !important;
-}*/
+}
 
 .buscar2 {
     width: 35px;
@@ -249,4 +275,31 @@ td {
 
 .row-bot {
     text-align: center !important;
+} 
+
+
+.buscador {
+    width: 450% !important;
+}
+
+.buscador .MuiInputLabel-shrink  {
+    background-color: whitesmoke;
+    padding: 2px;
+    border-radius: 5px;
+}
+
+.MuiInputBase-root .MuiOutlinedInput-root .MuiInputBase-colorPrimary .MuiInputBase-fullWidth .MuiInputBase-formControl .MuiInputBase-adornedEnd .MuiAutocomplete-inputRoot .css-segi59 {
+    height: 36px !important;
+}
+
+.css-1pq73ej .MuiOutlinedInput-root {
+    padding: 0px !important; 
+}
+
+.x {
+    width: 4% !important;
+}
+
+.articulo-insumo {
+    width: 15% !important;
 }

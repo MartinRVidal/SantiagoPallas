@@ -24,6 +24,7 @@ import {
   tipoDeArticulosAction,
 } from "../../../redux/actionsABM/reducerArticulos";
 
+
 const useStyles = makeStyles((theme) => ({
   title: {
     textAlign: "center",
@@ -40,7 +41,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const ArticulosForm = (patchData) => {
-  console.log(patchData?.location?.state)
   const history = useHistory();
   const classes = useStyles();
   const dispatch = useDispatch();
@@ -49,6 +49,8 @@ const ArticulosForm = (patchData) => {
     (store) => store.articulos
   );
   const [statusForm, setStatusForm] = useState(false);
+
+
   // Estado
   const [id, setId] = useState(patchData?.location?.state?.id || 0);
   const [nombre, setNombre] = useState(patchData?.location?.state?.nombre || "");
@@ -66,7 +68,26 @@ const ArticulosForm = (patchData) => {
   const [ancho, setAncho] = useState("");
   const [cola, setCola] = useState("");
   const [peso, setPeso] = useState("");
-  const [checked, setChecked] = useState("");
+
+  // constante de buscador
+  const [ search, setSearch ] = useState("");
+
+  // funcion para buscar filtrar por nombre de articulo
+
+  const searcher = (e) => {
+    setSearch(e.target.value)
+    //console.log(e.target.value)
+  }
+
+  let resultado = []
+  if(!search){
+    resultado = articulosInfo.result
+    //console.log(resultado)
+  }else{
+    resultado = articulosInfo.result.filter( (element) => element.nombre.toLowerCase().includes(search.toLocaleLowerCase()));
+    //console.log(resultados.filter)
+  }
+
 
 
   useEffect(() => {
@@ -74,9 +95,12 @@ const ArticulosForm = (patchData) => {
     dispatch(tipoDeArticulosAction(tipoDeArticulosInfo));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+
+
   const handleChangeAsignados = (e) => {
     const check = document.querySelectorAll("#checkbox");
-    if(e.target.checked == true){
+    if(e.target.checked === true){
       check.forEach( element => element.checked === false ? 
       element.parentNode.parentNode.parentNode.parentNode.style.display = "none" : "");
     }else{
@@ -85,8 +109,20 @@ const ArticulosForm = (patchData) => {
     }
 
   };
+
+  // const [checked, setChecked] = React.useState(true);
+
+  // const handleCheckid = (event) => {
+  //   setChecked(event.target.checked);
+  // };
+
+
+
+
   const handleCheck = (element, index, e) => {
+
     const existe = detalle.some((el) => el.idArticuloDetalle === element.id);
+
     if (existe) {
       const inputLuz = document.querySelectorAll("#luz")[index];
       inputLuz.value="";
@@ -179,6 +215,9 @@ const ArticulosForm = (patchData) => {
         },
     ]);}
   };
+
+
+
   const sendABM = async (e) => {
     e.preventDefault();
     setStatusForm(true);
@@ -216,6 +255,9 @@ const ArticulosForm = (patchData) => {
       setStatusForm(false);
     }
   };
+
+
+
   return (
     <div>
       <Header>
@@ -306,8 +348,20 @@ const ArticulosForm = (patchData) => {
               labelPlacement="start"
             />
             {selectInsumo !== 9 && (
-              <Table sx={{ minWidth: 750 }} className="table" aria-label="simple table">
+              <Table sx={{ minWidth: 750 }} className="table" aria-label="simple table" id="tabla-edit">
                 <TableHead>
+                  <TableRow className="row-buscador">
+                    <TextField 
+                      id="outlined-search"
+                      label="Buscador"
+                      type="search"
+                      className="buscador"
+                      margin="normal"
+                      value={search}
+                      onChange={searcher}
+                      variant="outlined"
+                    />
+                  </TableRow>
                   <TableRow className="list_titulos">
                     <TableCell>✓</TableCell>
                     <TableCell>Nomenclatura</TableCell>
@@ -327,7 +381,7 @@ const ArticulosForm = (patchData) => {
                   {!loading ? (
                     <Spiner />
                   ) : (
-                    articulosInfo?.result?.filter( element => element.idTipoArticulo === 9 ).map((element, index) => {
+                    resultado.filter( element => element.tipoArticulo === element.tipoArticulo.toLowerCase("INSUMO") ).map((element, index) => {
                       return (
                         (
                           <TableRow
@@ -341,13 +395,13 @@ const ArticulosForm = (patchData) => {
                               <Checkbox
                                 type="checkbox"
                                 id="checkbox"
-                                defaultChecked ={patchData?.location?.state?.detalle.find(x => x.idArticuloDetalle === element.id) !== undefined ? true : false}
+                                defaultChecked = {patchData?.location?.state?.detalle.find(x => x.idArticuloDetalle === element.id) !== undefined ? true : false}
                                 onChange={(e) => {handleCheck(element, index, e);
                                 }}
                               />
                             </TableCell>
                             <TableCell>
-                              <TextField value={element.nombre} />
+                              <TextField value={element.nombre} checkboxSelection disableSelectionOnClick/>
                             </TableCell>
                             <TableCell>
                               <TextField value={element.id} />

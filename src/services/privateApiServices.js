@@ -1,6 +1,8 @@
 import axios from "axios";
 
-const BASE_URL = "http://26.204.148.246:9090/api";
+const BASE_URL = process.env.REACT_APP_BACKEND_API_BASE_URL
+console.log(process.env.REACT_APP_BACKEND_API_BASE_URL)
+
 
 const tokenn = window.localStorage.getItem("token");
 const config = {

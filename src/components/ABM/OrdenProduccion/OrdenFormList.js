@@ -212,7 +212,6 @@ export default function OrdenFormList() {
     const { ordenesInfo } = useSelector(
         (store) => store.ordenes
     );
-    console.log(ordenesInfo);
 
     const dispatch = useDispatch();
 

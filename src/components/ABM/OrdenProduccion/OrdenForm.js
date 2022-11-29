@@ -33,6 +33,7 @@ import TableHead from "@mui/material/TableHead";
 import { nanoid } from "nanoid";
 import { Button } from 'reactstrap';
 import { useReactToPrint } from "react-to-print";
+import { useForm } from "react-hook-form";
 
 
 // cambio de formato en fechas
@@ -84,7 +85,8 @@ export default function Ordendeproduccion(patchData) {
         },
     ];
 
-    //funciones para llenar formulario de detalle 
+    //funciones para llenar formulario de detalle
+    //const {reset} = useForm();
     const [listado, setListado] = useState([]);
     const [addFormData, setAddFormData] = useState({
         id: '',
@@ -93,7 +95,6 @@ export default function Ordendeproduccion(patchData) {
         largo: '',
         ancho: '',
         numeropedido: '',
-        x: ''
     });
 
     const handleAddFormChange = (event) => {
@@ -132,8 +133,7 @@ export default function Ordendeproduccion(patchData) {
         console.log(setAddFormData);
     };
 
-
-    const handleSubmit = (event) => {
+    const handleSubmit = (event, onSubmitProps) => {
         event.preventDefault();
 
         const newList = {
@@ -148,7 +148,35 @@ export default function Ordendeproduccion(patchData) {
 
         const newContacts = [...listado, newList];
         setListado(newContacts);
+
+        let array = []
+        const obj = {
+            "id": 0,
+            "idOrden": 54,
+            "idArticuloDetalle": addFormData.articulo,
+            "fechaAlta": "2022-11-10T21:02:02.207",
+            "descripcion": "",
+            "observacion": "",
+            "cantidad": addFormData.cantidad,
+            "cantidadFacturada": 0,
+            "cantidadDevuelta": 0,
+            "largo": addFormData.largo,
+            "ancho": addFormData.ancho,
+            "numeroPedido": addFormData.numeropedido,
+            "value": "C"
+        }
+        array.push(obj);
+        setArrayDetalle(array);
+
+
+        const reset = document.getElementById("tabla-edit");
+        reset.reset();
+
+        //event.newList.reset()
+        //reset();
+        //onSubmitProps.reset()
     };
+
 
     const handleDeleteClick = (contactId) => {
         const newContacts = [...listado];
@@ -195,21 +223,7 @@ export default function Ordendeproduccion(patchData) {
                 idRecurso,
                 idVendedor,
                 prefijo,
-                detalle: [{
-                    id,
-                    idOrden,
-                    idArticuloDetalle,
-                    fechaAlta,
-                    descripcion,
-                    observacion,
-                    cantidad,
-                    cantidadFacturada,
-                    cantidadDevuelta,
-                    largo,
-                    ancho,
-                    numeroPedido,
-                    value
-                }],
+                detalle: arrayDetalle,
                 cuentasCorrientes: arrayClientes,
                 activo: true,
             });
@@ -252,40 +266,20 @@ export default function Ordendeproduccion(patchData) {
     const [compraVenta] = useState(patchData?.location?.state?.OtrCompraVenta || "V");
     const [fechaPrometido] = useState(patchData?.location?.state?.fechaPrometido || new Date());
     const [fechaEntrega, cambiarFechaEntrega] = useState(patchData?.location?.state?.fechaEntrega || new Date());
-    const [idOrden] = useState(patchData?.location?.state?.idOrden || 0);
-    const [idArticuloDetalle] = useState(addFormData.articulo || 1172)
-    const [largo] = useState(addFormData.largo || 0);
-    const [cantidad] = useState(addFormData.cantidad || 0);
-    const [value] = useState(patchData?.location.state?.value) || "C";
-    const [numeroPedido] = useState(addFormData.numeropedido || 2);
-    const [idOrdenTrabajo] = useState(patchData?.location.state?.idOrdenTrabajo || 0);
-    const [ancho] = useState(addFormData.ancho || 0);
-    const [cantidadDevuelta] = useState(patchData?.location.state?.cantidadDevuelta || 0);
-    const [cantidadFacturada] = useState(patchData?.location.state?.cantidadFacturada || 0);
-    const [observacion] = useState(patchData?.location.state?.observacion || "");
-    const [descripcion] = useState(patchData?.location.state?.descripcion || "");
+    // const [idOrden] = useState(patchData?.location?.state?.idOrden || 0);
+    // const [idArticuloDetalle] = useState(addFormData.articulo || 1172)
+    // const [largo] = useState(addFormData.largo || 0);
+    // const [cantidad] = useState(addFormData.cantidad || 0);
+    // const [value] = useState(patchData?.location.state?.value) || "C";
+    // const [numeroPedido] = useState(addFormData.numeropedido || 2);
+    // const [ancho] = useState(addFormData.ancho || 0);
+    // const [cantidadDevuelta] = useState(patchData?.location.state?.cantidadDevuelta || 0);
+    // const [cantidadFacturada] = useState(patchData?.location.state?.cantidadFacturada || 0);
+    // const [observacion] = useState(patchData?.location.state?.observacion || "");
+    // const [descripcion] = useState(patchData?.location.state?.descripcion || "");
     const [idCuentaCorriente, setIdCuentaCorriente] = useState(patchData?.location?.state?.idCuentaCorriente || []);
-
-
-
-    // arreglo para pushear objetos 
-    let arrayClientes = [];
-    idCuentaCorriente.forEach(element => {
-        arrayClientes.push = {
-            idOrdenTrabajo,
-            idCuentaCorriente: element,
-        }
-    });
-    console.log(arrayClientes);
-
-    const handleChange = (event) => {
-        const {
-            target: { value },
-        } = event;
-        setIdCuentaCorriente(
-            typeof value === 'string' ? value.split(',') : value,
-        );
-    };
+    const [arrayClientes, setArrayClientes] = useState([]);
+    const [arrayDetalle, setArrayDetalle] = useState([]);
 
 
     return (
@@ -353,7 +347,17 @@ export default function Ordendeproduccion(patchData) {
                                             id="demo-multiple-checkbox"
                                             multiple
                                             value={idCuentaCorriente}
-                                            onChange={(e) => setIdCuentaCorriente(e.target.value)}
+                                            onChange={(e) => { 
+                                                setIdCuentaCorriente (e.target.value) 
+                                                let array = []
+                                                e.target.value.forEach(element => {
+                                                    const obj = {                   
+                                                        "idOrdenTrabajo": 54,
+                                                        "idCuentaCorriente": element
+                                                        }
+                                                        array.push(obj)
+                                                })
+                                                setArrayClientes(array)}}
                                             input={<OutlinedInput label="Clientes" />}
                                             renderValue={(selected) => selected.join(', ')}
                                             MenuProps={MenuProps}
@@ -361,7 +365,7 @@ export default function Ordendeproduccion(patchData) {
                                             {clientesInfo?.result?.map((element) => (
                                                 <MenuItem key={element.id} value={element.id}>
                                                     <Checkbox checked={idCuentaCorriente.indexOf(element.id) > -1} />
-                                                    <ListItemText primary={element.id} />
+                                                    <ListItemText primary={element.nombreComercial} />
                                                 </MenuItem>
                                             ))}
                                         </Select>
@@ -377,7 +381,7 @@ export default function Ordendeproduccion(patchData) {
                                         onChange={(e) => cambiarDireccion(e.target.value)}
                                     />
                                 </div>
-                                <form className="main-divider-bottom">
+                                <form className="main-divider-bottom" id="tabla-edit" >
                                     <input
                                         type="hidden"
                                         fullWidth
@@ -399,8 +403,9 @@ export default function Ordendeproduccion(patchData) {
                                         className="column-label articulo-insumo titulos-label input-label"
                                         disablePortal
                                         id="combo-box-demo"
-                                        options={(articulosInfo?.result?.map((element) => (element.id)))}
+                                        options={(articulosInfo?.result?.map((element) => (element.nombre)))}
                                         noOptionsText="No hay articulos"
+                                        value= {(articulosInfo?.result?.map((element) => (element.id)))}
                                         sx={{ width: 200 }}
                                         onChange={handleAddFormChangeAuto}
                                         name="articulo"
@@ -432,7 +437,7 @@ export default function Ordendeproduccion(patchData) {
                                     />
                                     <TextField
                                         name='x'
-                                        className="x titulos-label input-label"
+                                        className=" titulos-label input-label"
                                         id="outlined-select-currency"
                                         select
                                         label="X"

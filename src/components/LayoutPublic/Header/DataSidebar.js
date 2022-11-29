@@ -91,11 +91,11 @@ export const DataProcesos = [
   {
     icon: <VscServerProcess />,
     title: "Consulta de órdenes",
-    link: "/",
+    link: "/PallasFront/Consultaorden",
   },
   {
     icon: <FaBoxes />,
     title: "Orden de producción",
-    link: "/PallasFront/Ordendeproduccion",
+    link: "/PallasFront/orden-prod-list",
   },
 ];
